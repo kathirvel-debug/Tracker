@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <title>Daily Task Todo List</title>
+  <style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  
+  .task-container {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .task {
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .task-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .task-due {
+    font-size: 14px;
+    color: #888;
+  }
+  
+  .task-time {
+    font-size: 14px;
+    color: #333;
+  }
+  .task-form-container {
+    max-width: 400px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .task-form {
+    display: flex;
+    flex-direction: column;
+  }
+  button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+</style>
+</head>
+<body>
+
+  <div class="task-container">
+    <%data.forEach(tag=>{%>
+    <div class="task">
+      <div class="task-name"><%=tag.taskname%> </div>
+      <div class="task-due"><span><%=tag.count%></span>/<span><%=tag.daysDue%></span></div>
+      <div class="task-time"><%=tag.taskTime%></div>
+      <div><a href="/update/<%=tag.id%>"><button type="submit" value="completed">Done</button></a></div>
+      <div><a href="/update2/<%=tag.id%>"><button type="submit" value="incompleted">Not Done</button></a></div>
+    </div>
+    <%})%>
+    
+    <div class="fotter" style="display: flex; justify-content: space-evenly;margin-top: 10px;">
+      <div><a href="/create"><button type="submit">Create the task </button></a></div>
+        <div><a href="/recrods"><button type="submit">Weekly View</button></a></div>
+    </div>
+    
+  </div>
+  
+</body>
+</html>

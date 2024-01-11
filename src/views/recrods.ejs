@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/09efacf199.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        .calendar {
+       max-width: 600px;
+       margin: 50px auto;
+       background-color: #fff;
+       padding: 20px;
+       border-radius: 8px;
+       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+     }
+     
+     .weekdays {
+       display: flex;
+       justify-content: space-between;
+       margin-bottom: 10px;
+     }
+     
+     .weekdays span {
+       width: calc(100% / 7);
+       text-align: center;
+     }
+     
+     .days {
+       display: grid;
+       grid-template-columns: repeat(15, 1fr);
+       gap: 5px;
+     }
+     .calendar-container {
+           display: flex;
+           flex-direction: row;
+           align-items: center;
+         }
+         .day-box {
+           width: 77px;
+           height: 50px;
+           margin: 5px;
+           background-color: lightblue;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+         }
+     .day {
+       width: calc(100% / 15);
+       height: 40px;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       background-color: #eee;
+       border-radius: 4px;
+       cursor: pointer;
+     }
+     
+     .day:hover {
+       background-color: #ddd;
+     }
+       </style>
+</head>
+<body>
+  <div class="calendar">
+    <div class="weekdays">
+      <span>Sun</span>
+      <span>Mon</span>
+      <span>Tue</span>
+      <span>Wed</span>
+      <span>Thu</span>
+      <span>Fri</span>
+      <span>Sat</span>
+    </div>
+    <%data.forEach(tag=>{%>
+      <h1><%=tag.type%></h1>
+    <div class="days">
+        <div class="calendar-container">  
+          <%for (var i=0;i< tag.daysDue;i++){%>
+            
+            <div class="day-box">
+              <% if(tag.days[i]==true){%>
+                 <i class="fa-solid fa-person-walking"></i>
+              <% }else if(tag.days[i]==false){%>
+                 <i class="fa-solid fa-circle-xmark"></i>
+              <% }%>
+             </div>
+          <%} %>
+          </div>
+    </div>
+    <%})%> 
+  </div>
+</body>
+</html>
