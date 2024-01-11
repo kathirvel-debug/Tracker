@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  
+  .task-container {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .task {
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .task-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .task-due {
+    font-size: 14px;
+    color: #888;
+  }
+  
+  .task-time {
+    font-size: 14px;
+    color: #333;
+  }
+  .task-form-container {
+    max-width: 400px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .task-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-bottom: 8px;
+  }
+  select{
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  input {
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+    </style>
+</head>
+<body>
+    <div class="task-form-container">
+        <form class="task-form"  action="/upload" method="post" enctype="multipart/form-data>
+          <label for="taskName">Task Name:</label>
+          <input type="text" id="taskName" name="taskName" placeholder="Enter task name" required>
+          <label for="tasktype">Type of Task:</label>
+          <select name="type" id="cars">
+            <option value="workOut">workOut</option>
+            <option value="Study">Study</option>
+            <option value="Drinking Water">Drinking Water</option>
+            <option value="Playing">Playing</option>
+          </select>
+          <label for="taskTime">Task Time:</label>
+          <input type="time" id="taskTime" name="taskTime" required>
+    
+          <label for="daysDue">Days Until Due:</label>
+          <input type="number" id="daysDue" name="daysDue" placeholder="Enter days until due" required>
+    
+          <button type="submit">Add Task</button>
+        </form>
+      </div>
+</body>
+</html>
